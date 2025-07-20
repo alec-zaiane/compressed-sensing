@@ -1,0 +1,16 @@
+[project]
+name = "compressed-sensing"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "cvxpy>=1.7.1",
+    "matplotlib>=3.10.3",
+    "numpy>=2.3.1",
+    "pylbfgs>=0.2.0.16",
+    "requests>=2.32.4",
+    "scipy>=1.16.0",
+    "scipy-stubs>=1.16.0.2",
+    "tqdm>=4.67.1",
+]
