@@ -5,14 +5,21 @@ from image_sampler import random_sample_pixels
 from compressed_sensing import reconstruct_image
 
 
-def main():
+def main(
+    image_size: int = 200,
+    sample_ratio: float = 0.1,
+    iterations_per_channel: int = 100,
+):
+
     print("Fetching image...")
-    image = fetch_image(200)
+    image = fetch_image(image_size)
     print("Sampling pixels...")
-    sample = random_sample_pixels(image, num_pixels=2000)
+    sample = random_sample_pixels(
+        image, num_pixels=int((image_size * image_size) * sample_ratio)
+    )
     print("Reconstructing image...")
     reconstructed_image = reconstruct_image(
-        sample, image.size, iterations_per_channel=5000
+        sample, image.size, iterations_per_channel=iterations_per_channel
     )
 
     fig, ax = plt.subplots(1, 3, figsize=(18, 6))
@@ -27,4 +34,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(image_size=500, sample_ratio=0.05)
